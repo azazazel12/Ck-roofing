@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CK Roofing | Tough & Trusted Roofers</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="photos/logo/cklogo.png" alt="CK Roofing Logo" />
+        </a>
+      </div>
+      <nav>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="enquiries.html">Enquiries</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="slideshow" aria-label="Roofing slideshow">
+        <img
+          src="photos/calico/calico1.jpg"
+          alt="Calico Roof 1"
+          class="active"
+        />
+        <img src="photos/calico/calico2.jpg" alt="Calico Roof 2" />
+        <img src="photos/green/green1.jpg" alt="Green Roof 1" />
+        <img src="photos/green/green2.jpg" alt="Green Roof 2" />
+        <img src="photos/grey/grey1.jpg" alt="Grey Roof 1" />
+        <img src="photos/grey/grey2.jpg" alt="Grey Roof 2" />
+        <img src="photos/gutters/gutter1.jpg" alt="Gutter 1" />
+        <img src="photos/gutters/gutter2.jpg" alt="Gutter 2" />
+        <img src="photos/gutters/gutter3.jpg" alt="Gutter 3" />
+        <img src="photos/orange/orange1.jpg" alt="Orange Roof 1" />
+        <img src="photos/orange/orange2.jpg" alt="Orange Roof 2" />
+      </div>
+
+      <div class="hero-content">
+        <h1>Your Roof. Our Reputation.</h1>
+        <p>Melbourne’s roofing experts delivering strength and style.</p>
+        <button class="btn" onclick="location.href='enquiries.html'">
+          Get a Free Quote
+        </button>
+      </div>
+    </section>
+
+    <section class="info">
+      <h2>Why Choose CK Roofing?</h2>
+      <p>
+        With years of experience, CK Roofing is Melbourne’s go-to roofing
+        service, known for reliability and quality.
+      </p>
+      <ul>
+        <li>Licensed & Insured Roofers</li>
+        <li>High-Grade, Weather-Tested Materials</li>
+        <li>Transparent Quotes with No Hidden Fees</li>
+        <li>Fast & Professional Service</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>ckroofrestorations@gmail.com | 0426 813 612</p>
+      <p>&copy; 2025 CK Roofing. All rights reserved.</p>
+    </footer>
+
+    <button id="scrollTopBtn">↑</button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.transition = "opacity 0.8s ease-in-out";
+        document.body.style.opacity = 1;
+      });
+
+      const slides = document.querySelectorAll(".slideshow img");
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach((img, i) => {
+          img.classList.toggle("active", i === index);
+        });
+      }
+
+      function nextSlide() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }
+
+      let slideInterval = setInterval(nextSlide, 4000);
+
+      document
+        .querySelector(".slideshow")
+        .addEventListener("mouseenter", () => {
+          clearInterval(slideInterval);
+        });
+      document
+        .querySelector(".slideshow")
+        .addEventListener("mouseleave", () => {
+          slideInterval = setInterval(nextSlide, 4000);
+        });
+
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll(".info").forEach((el) => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s ease-out";
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CK Roofing | Services</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="photos/logo/cklogo.png" alt="CK Roofing Logo" />
+        </a>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="about.html">About</a>
+        <a href="enquiries.html">Enquiries</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section
+      class="hero"
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url('photos/grey/grey2.jpg') center/cover no-repeat;
+      "
+    >
+      <div class="hero-content">
+        <h1>Services We Offer</h1>
+        <p>
+          Comprehensive roofing solutions designed for quality, durability, and
+          style.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="info">
+      <div class="services-list">
+        <!-- Service 1 -->
+        <div class="service-item">
+          <svg
+            class="service-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+          >
+            <path d="M32 2L2 32h60L32 2z" fill="var(--accent-color)" />
+            <path
+              d="M24 34v12h16V34H24z"
+              fill="none"
+              stroke="var(--white)"
+              stroke-width="2"
+            />
+          </svg>
+          <div class="service-title">Pressure Washing</div>
+          <div class="service-desc">
+            Restore your roof’s appearance and remove debris, mold, and grime
+            professionally.
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-item">
+          <svg
+            class="service-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+          >
+            <path
+              d="M14 50 L32 30 L38 36 L18 54 Z"
+              fill="none"
+              stroke="var(--accent-color)"
+              stroke-width="3"
+            />
+            <path
+              d="M32 28 L38 22"
+              stroke="var(--accent-color)"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="service-title">Repointing</div>
+          <div class="service-desc">
+            Skilled mortar repointing to seal gaps, improve strength, and extend
+            roof life.
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-item">
+          <svg
+            class="service-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+          >
+            <path
+              d="M2 30 L32 2 L62 30 L32 62 Z"
+              fill="none"
+              stroke="var(--accent-color)"
+              stroke-width="3"
+            />
+            <circle
+              cx="32"
+              cy="32"
+              r="10"
+              fill="var(--accent-color)"
+              opacity="0.3"
+            />
+            <path d="M22 32h20" stroke="var(--white)" stroke-width="2" />
+          </svg>
+          <div class="service-title">Full Restoration Package (10% Off)</div>
+          <div class="service-desc">
+            Complete roof restoration: cleaning, repairs, painting, and sealing
+            at 10% off.
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-item">
+          <svg
+            class="service-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64"
+          >
+            <circle
+              cx="32"
+              cy="32"
+              r="28"
+              fill="none"
+              stroke="var(--accent-color)"
+              stroke-width="3"
+            />
+            <path
+              d="M32 10v20l14 14"
+              fill="none"
+              stroke="var(--accent-color)"
+              stroke-width="3"
+            />
+          </svg>
+          <div class="service-title">Free Roof Inspections</div>
+          <div class="service-desc">
+            Book a no-obligation roof inspection to assess condition and
+            maintenance needs.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll to Top -->
+    <button id="scrollTopBtn">↑</button>
+
+    <!-- Footer -->
+    <footer>
+      <p>ckroofrestorations@gmail.com | 0426 813 612</p>
+      <p>&copy; 2025 CK Roofing. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.transition = "opacity 0.8s ease-in-out";
+        document.body.style.opacity = 1;
+      });
+
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll(".service-item").forEach((el) => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s ease-out";
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

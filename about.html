@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CK Roofing | About Us</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="photos/logo/cklogo.png" alt="CK Roofing Logo" />
+        </a>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Banner Hero -->
+    <section
+      class="hero"
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url('photos/grey/grey1.jpg') center/cover no-repeat;
+      "
+    >
+      <div class="hero-content">
+        <h1>About CK Roofing</h1>
+        <p>
+          Expert roofing solutions built on trust, quality, and craftsmanship.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="info">
+      <div class="info-card">
+        <h2>Our Mission</h2>
+        <p>
+          Deliver durable, stylish, and tailored roofing solutions for Melbourne
+          homes and businesses. Our goal is to exceed expectations on every
+          project.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>Why Choose Us?</h2>
+        <ul>
+          <li>Certified and insured tradespeople</li>
+          <li>No hidden fees or shortcuts</li>
+          <li>Customer satisfaction guaranteed</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2>Our Values</h2>
+        <p>
+          Integrity, safety, and craftsmanship are the foundation of everything
+          we do. We treat every roof like it’s our own.
+        </p>
+      </div>
+    </section>
+
+    <!-- Scroll to Top -->
+    <button id="scrollTopBtn">↑</button>
+
+    <!-- Footer -->
+    <footer>
+      <p>ckroofrestorations@gmail.com | 0426 813 612</p>
+      <p>&copy; 2025 CK Roofing. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.transition = "opacity 0.8s ease-in-out";
+        document.body.style.opacity = 1;
+      });
+
+      // Scroll to Top
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Animate Info Cards
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll(".info-card").forEach((el) => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s ease-out";
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
