@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thank You - CK Roofing</title>
+
+    <!-- Google Fonts & Your Styles -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header (copied from index) -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="photos/logo/cklogo.png" alt="CK Roofing Logo" />
+        </a>
+      </div>
+      <nav>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="enquiries.html">Enquiries</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Thank You Section -->
+    <section
+      class="hero"
+      style="height: auto; padding: 80px 20px; text-align: center"
+    >
+      <div class="hero-content">
+        <h1>✅ Thank You!</h1>
+        <p>
+          Your form has been successfully submitted.<br />
+          We’ll be in touch with you soon.
+        </p>
+        <button class="btn" onclick="location.href='index.html'">
+          ⬅ Go Back
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer (same as index) -->
+    <footer>
+      <p>ckroofrestorations@gmail.com | 0426 813 612</p>
+      <p>&copy; 2025 CK Roofing. All rights reserved.</p>
+    </footer>
+
+    <button id="scrollTopBtn">↑</button>
+
+    <!-- Keep the same script so the scroll button & fade-in work -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.transition = "opacity 0.8s ease-in-out";
+        document.body.style.opacity = 1;
+      });
+
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>
